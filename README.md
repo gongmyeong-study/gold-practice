@@ -1,2 +1,2 @@
-## repository for git practice
+## 코드 연습장
 

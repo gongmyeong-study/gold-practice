@@ -1,0 +1,37 @@
+<!-- 소문자 입력 받아 대문자로 변환하기 -->
+<!DOCTYPE html>
+<html>
+   
+    <meta charset="UTF-8">
+    <head></head>
+
+    <body>
+        <h3>소문자 입력 후 엔터를 치면 대문자로 바꿔드립니다</h3>
+        <input type="text" id="lower_input">
+        <h4 class="upper_result"></h4>
+    </body>
+
+    <script>
+        let input = document.querySelector("#lower_input");
+        let result = document.querySelector(".upper_result");
+        
+        const inputToUpperCase = () => {
+            let text = input.value;
+            if(text !== text.toUpperCase()) {
+            let upper_text = text.toUpperCase();
+            result.innerText = upper_text;
+            } else {
+                result.innerText = ""
+            }
+        } 
+
+        input.addEventListener("keyup", (e) => {
+            if(e.keyCode === 13) {
+                event.preventDefault();
+                inputToUpperCase();
+            }           
+        })
+
+    </script>
+
+</html>
