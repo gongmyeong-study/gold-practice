@@ -7,14 +7,14 @@
 
 3. Book app 생성 :  `python manage.py startapp book `
 
-4. RestFramework 설치 : `pip3 install djangorestframework`
+4. RestFramework 설치 : `pip install djangorestframework`
 
 5. setting.py 에 Book 설정 추가 : 
 `INSTALLED_APPS […, ‘rest_framework’,‘book.apps.BookConfig]`
 
 6. migration 확인하기 : `python manage.py showmigrations`
 
-7. migration apply 하기 : `python3 manage.py migrate`
+7. migration apply 하기 : `python manage.py migrate`
 
 8. 모델 만들기 : in /Book/models.py
 ```python
@@ -26,7 +26,7 @@ class Book(models.Model):
 	 author = models.CharField(max_length = 100)
 ```
 
-9. 만든 모델을 migrate하기 : `python3 manage.py makemigrations`
+9. 만든 모델을 migrate하기 : `python manage.py makemigrations`
 
 10. 뷰 만들기 : in Book/views.py
 ```python
