@@ -1,4 +1,5 @@
-# Django 튜토리얼 by 다빈
+# Django 튜토리얼 by 다빈 (https://github.com/davin111)
+
 
 1. 프로젝트 생성 : `django-admin startproject mystore`
 
@@ -36,13 +37,13 @@ class BookViewSet(viewsets.GenericViewSet):
 	  # create 메소드는 이 형식이 표준
     def create(self, request, *args, **kwargs):
 	      title = request.data.get("title")
-        price = request.data.get("price")
-        author = request.data.get("author")
+              price = request.data.get("price")
+       	      author = request.data.get("author")
 
-		  book = Book.objects.create(title=title, 					  price=price, author=author)
-        return Response(book, status=status.HTTP_201_CREATED)
+              book = Book.objects.create(title=title, 					
+	      price=price, author=author)
 
-
+              return Response(book, status=status.HTTP_201_CREATED)
 ```
 
 11. urls.py 생성 : in book/urls.py
@@ -106,7 +107,8 @@ class BookViewSet(viewsets.GenericViewSet):
 ```
 
 16. Postman을 설치해 API를  호출해보자 :
-![](Django%20%E1%84%90%E1%85%B2%E1%84%90%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%AF%20by%20%E1%84%83%E1%85%A1%E1%84%87%E1%85%B5%E1%86%AB/Screen%20Shot%202020-05-16%20at%204.04.22%20PM.png)
+<img width="1136" alt="Screen Shot 2020-05-16 at 4 04 22 PM" src="https://user-images.githubusercontent.com/54926767/82113812-c8055200-9793-11ea-8ad9-b1280ae1a533.png">
+
 
 17. key request 오류를 처리하자 : in book/views.py
 
@@ -127,8 +129,7 @@ class BookViewSet(viewsets.GenericViewSet):
         return Response(data, status=status.HTTP_201_CREATED)
 ```
 400 “필수 키가 비어있습니다”
-![](Django%20%E1%84%90%E1%85%B2%E1%84%90%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%AF%20by%20%E1%84%83%E1%85%A1%E1%84%87%E1%85%B5%E1%86%AB/Screen%20Shot%202020-05-16%20at%204.15.18%20PM.png)
-
+<img width="1136" alt="Screen Shot 2020-05-16 at 4 15 18 PM" src="https://user-images.githubusercontent.com/54926767/82113845-f2570f80-9793-11ea-9e4b-2dbd5f50dd3f.png">
 17. get ~/book/id or ~/book/ 호출로 책 목록을 가져오자 : in book/views.py
 ```python	
 from django.shortcuts import render, get_object_or_404
@@ -164,7 +165,5 @@ class BookViewSet(viewsets.GenericViewSet):
         return Response(data)
 ```
 
-
-![](Django%20%E1%84%90%E1%85%B2%E1%84%90%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%AF%20by%20%E1%84%83%E1%85%A1%E1%84%87%E1%85%B5%E1%86%AB/Screen%20Shot%202020-05-16%20at%204.28.24%20PM.png)![](Django%20%E1%84%90%E1%85%B2%E1%84%90%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%AF%20by%20%E1%84%83%E1%85%A1%E1%84%87%E1%85%B5%E1%86%AB/Screen%20Shot%202020-05-16%20at%204.27.05%20PM.png)
-
-	
+<img width="1147" alt="Screen Shot 2020-05-16 at 4 28 24 PM" src="https://user-images.githubusercontent.com/54926767/82113856-026eef00-9794-11ea-8d4c-c405f1c157f7.png">
+<img width="1644" alt="Screen Shot 2020-05-16 at 4 27 05 PM" src="https://user-images.githubusercontent.com/54926767/82113860-0569df80-9794-11ea-8c43-7d0c130a298a.png">
