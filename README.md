@@ -9,8 +9,7 @@
 4. RestFramework 설치 : `pip3 install djangorestframework`
 
 5. setting.py 에 Book 설정 추가 : 
-```INSTALLED_APPS […, ‘rest_framework’,‘book.apps.BookConfig]
-``` 
+`INSTALLED_APPS […, ‘rest_framework’,‘book.apps.BookConfig]`
 
 6. migration 확인하기 : `python manage.py showmigrations`
 
