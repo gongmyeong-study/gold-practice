@@ -1,6 +1,5 @@
 interface State {
-  counter: number,
-  username?: string
+  record: string
 }
 
 interface Action {
@@ -9,8 +8,7 @@ interface Action {
 }
 
 const initialState: State = {
-  counter: 0,
-  username: undefined
+  record: "Genesis Meditation"
 }
 
 const reducer = (state: State = initialState , action: Action) => {
