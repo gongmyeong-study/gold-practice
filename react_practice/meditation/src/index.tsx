@@ -1,21 +1,23 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
-import { createStore } from 'redux';
+import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const store = createStore();
+import store from "./store/store";
 
 ReactDOM.render(
-  <Router>
-    <Suspense fallback={<div>Loading...</div>}>
-      <Switch>
-        <Route exact path={["/main", "/"]} component={App} />
-      </Switch>
-    </Suspense>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path={["/main", "/"]} component={App} />
+        </Switch>
+      </Suspense>
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );
 
