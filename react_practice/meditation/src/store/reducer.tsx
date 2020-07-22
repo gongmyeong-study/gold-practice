@@ -1,18 +1,27 @@
 interface State {
-  records: Array<string>
+  records: Array<string>;
 }
 
 interface Action {
-  type: string,
-  value: number
+  type: string;
+  value: string;
 }
 
 const initialState: State = {
-  records: ["Genesis Meditation", "차를 마시며 명상했어요", "숲길을 걸으며 명상했어요", "도스토예프스키를 읽으며 명상했어요"]
-}
+  records: ["Genesis Meditation"],
+};
 
-const reducer = (state: State = initialState , action: Action) => {
-  return state
-}
+const reducer = (state: State = initialState, action: Action) => {
+  if (action.type === "WRITE") {
+    console.log("Writing Medtation");
+    console.log(action.value);
+    return {
+      ...state,
+      records: [action.value],
+    };
+  }
+
+  return state;
+};
 
 export default reducer;

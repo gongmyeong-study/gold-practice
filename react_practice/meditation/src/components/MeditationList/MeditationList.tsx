@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 interface Props {
-  records: [string]
+  records: Array<string>
 }
 
 function MeditationList(props: Props) {

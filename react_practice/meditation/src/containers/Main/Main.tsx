@@ -1,10 +1,13 @@
 import React from "react";
-import { MeditationList } from "../../components/index";
+
+import "./Main.css";
+import { MeditationList, MeditationControl } from "../../components/index";
 
 function Main() {
   return (
     <div className="Main">
-      <h1>메인 페이지</h1>
+      <h1>Main Container</h1>
+      <MeditationControl />
       <MeditationList />
     </div>
   );
