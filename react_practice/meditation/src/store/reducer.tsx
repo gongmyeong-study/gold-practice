@@ -1,5 +1,5 @@
 interface State {
-  record: string
+  records: Array<string>
 }
 
 interface Action {
@@ -8,7 +8,7 @@ interface Action {
 }
 
 const initialState: State = {
-  record: "Genesis Meditation"
+  records: ["Genesis Meditation", "차를 마시며 명상했어요", "숲길을 걸으며 명상했어요", "도스토예프스키를 읽으며 명상했어요"]
 }
 
 const reducer = (state: State = initialState , action: Action) => {
