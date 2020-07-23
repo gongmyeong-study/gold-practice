@@ -1,16 +1,23 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { connect } from "react-redux";
 
 interface Props {
-  records: Array<string>
+  records: Array<string>;
+  delete: (key: number) => void;
 }
 
 function MeditationList(props: Props) {
   return (
     <div className="meditation_list">
       <h1>MeditationList Component</h1>
-      {props.records.map((value) => {
-        return <h2>{value}</h2>;
+
+      {props.records.map((value, key) => {
+        return (
+          <div>
+            <h2 key={key}>{value}</h2>
+            <button onClick={() => props.delete(key)}></button>
+          </div>
+        );
       })}
     </div>
   );
@@ -18,8 +25,14 @@ function MeditationList(props: Props) {
 
 const mapStateToProps = (state: any) => {
   return {
-    records: state.records
-  }
-}
+    records: state.records,
+  };
+};
 
-export default connect(mapStateToProps)(MeditationList);
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+  return {
+    delete: (key: number) => dispatch({ type: "DELETE", key: key }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MeditationList);
